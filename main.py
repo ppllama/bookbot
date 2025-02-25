@@ -1,4 +1,6 @@
-import wordcounter
+import stats
+import sys
+#from stats import *
 
 # def main():
 #     bookpath = "books/frankenstein.txt"
@@ -15,14 +17,18 @@ import wordcounter
 #     main()
 
 def main():
-    bookpath = "books/frankenstein.txt"
-    file_contents = wordcounter.get_book_path(bookpath)
-    num_of_word = wordcounter.words(file_contents)
-    report = wordcounter.reports(file_contents)
+    if len(sys.argv) <2:
+        print("Usage:python3 main.py <path_to_book>")
+        sys.exit(1)
+    bookpath = sys.argv[1]
+    file_contents = stats.get_book_path(bookpath)
+    num_of_word = stats.words(file_contents)
+    report = stats.reports(file_contents)
     
-    print("--- Begin report of books/frankenstein.txt ---")
+    print(f"--- Begin report of {sys.argv[1]} ---")
     print()  # This adds one blank line
-    print(f"{num_of_word} words found in the document")
+    #print(f"{num_of_word} words found in the document")
+    print(f"Found {num_of_word} total words")
     print()  # This adds one blank line
     print(report)
     print("--- End report ---")

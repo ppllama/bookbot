@@ -30,5 +30,7 @@ def reports(file_contents):
     list_of_dict.sort(reverse=True, key=sort_on)    
     result = ""
     for key in list_of_dict:
-        result += f"The '{key['name']}' character was found {key['num']} times\n"
+        
+        #result += f"The '{key['name']}' character was found {key['num']} times\n"
+        result += f"{key['name']}: {key['num']}\n"
     return result
